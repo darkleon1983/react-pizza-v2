@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./scss/app.scss";
 import Header from "./Components/Header";
 import Categories from "./Components/Categories";
 import Sort from "./Components/Sort";
 import PizzaBlock from "./Components/PizzaBlock";
+import pizzas from "../src/assets/pizzas.json";
 
-function App() {
+function App(props) {
   return (
     <div className="wrapper">
       <Header />
@@ -17,17 +18,9 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            <PizzaBlock title="Супер-пицца" price={987} />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
-            <PizzaBlock />
+            {pizzas.map((pizza) => (
+              <PizzaBlock {...pizza} />
+            ))}
           </div>
         </div>
       </div>
