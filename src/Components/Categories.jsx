@@ -17,6 +17,7 @@ const Categories = () => {
       <ul>
         {pizzaCategories.map((categorie, index) => (
           <li
+            key={index}
             onClick={() => onClickCategorie(index)}
             className={activeIndex === index ? "active" : " "}
           >
